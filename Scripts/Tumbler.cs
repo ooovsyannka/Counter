@@ -14,7 +14,7 @@ public class Tumbler : MonoBehaviour
     private void Update()
     {
         Turn();
-        SwitcherControl();
+        ControlSwitcher();
     }
 
     private void Turn()
@@ -27,7 +27,7 @@ public class Tumbler : MonoBehaviour
         }
     }
     
-    private void SwitcherControl()
+    private void ControlSwitcher()
     {
         if (IsOn)
             _switcher.sprite = _switchOn;
