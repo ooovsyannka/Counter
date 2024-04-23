@@ -11,9 +11,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private AnimationClip _anim;
 
-
     private WaitForSecondsRealtime _waitForSeconds;
-
     private int _coutn = 0;
 
     private void Start()
