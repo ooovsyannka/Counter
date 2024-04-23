@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Counter : MonoBehaviour
 {
     [SerializeField] private float _smoothDecreaseDuration;
     [SerializeField] private Tumbler _tumbler;
     [SerializeField] private TextMeshProUGUI _counterText;
-    [SerializeField] private Animator _animator;
-    [SerializeField] private AnimationClip _anim;
+    [SerializeField] private Animator _counterAnimator;
+    [SerializeField] private AnimationClip _tumblerAnimation;
 
     private WaitForSecondsRealtime _waitForSeconds;
     private int _coutn = 0;
@@ -43,9 +42,9 @@ public class Counter : MonoBehaviour
     {
         _waitForSeconds = new WaitForSecondsRealtime(_smoothDecreaseDuration);
 
-        while ( _tumbler.IsOn)
+        while (_tumbler.IsOn)
         {
-            _animator.Play(_anim.name);
+            _counterAnimator.Play(_tumblerAnimation.name);
             _coutn++;
 
             ShowTimer();

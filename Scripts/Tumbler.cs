@@ -13,25 +13,19 @@ public class Tumbler : MonoBehaviour
 
     private void Update()
     {
-        Turn();
-        SetSwitcherSprite();
-    }
-
-    private void Turn()
-    {
         if (Input.GetMouseButtonUp(0))
         {
             IsOn = !IsOn;
 
-            Switching?.Invoke();
+            if (IsOn)
+            {
+                Switching?.Invoke();
+                _switcher.sprite = _switchOn;
+            }
+            else
+            {
+                _switcher.sprite = _switchOff;
+            }
         }
-    }
-    
-    private void SetSwitcherSprite()
-    {
-        if (IsOn)
-            _switcher.sprite = _switchOn;
-        else
-            _switcher.sprite = _switchOff;
     }
 }
