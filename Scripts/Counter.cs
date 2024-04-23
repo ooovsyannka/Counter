@@ -10,9 +10,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _counterText;
     [SerializeField] private Animator _animator;
     [SerializeField] private AnimationClip _anim;
-    [SerializeField] private Image _switcher;
-    [SerializeField] private Sprite _switchOn;
-    [SerializeField] private Sprite _switchOff;
+
 
     private WaitForSecondsRealtime _waitForSeconds;
 
@@ -21,12 +19,6 @@ public class Counter : MonoBehaviour
     private void Start()
     {
         ShowTimer();
-        _switcher.GetComponent<Image>().sprite = _switchOff;
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void OnEnable()
@@ -42,7 +34,6 @@ public class Counter : MonoBehaviour
     private void OnSwitching()
     {
         StartCoroutine(CountUp());
-        SwitcherControl(_tumbler.IsOn);
     }
 
     private void ShowTimer()
@@ -56,20 +47,12 @@ public class Counter : MonoBehaviour
 
         while ( _tumbler.IsOn)
         {
-            ShowTimer();
-
             _animator.Play(_anim.name);
             _coutn++;
 
+            ShowTimer();
+
             yield return _waitForSeconds;
         }
-    }
-
-    private void SwitcherControl(bool isWork)
-    {
-        if (isWork)
-            _switcher.GetComponent<Image>().sprite = _switchOn;
-        else
-            _switcher.GetComponent<Image>().sprite = _switchOff;
     }
 }
