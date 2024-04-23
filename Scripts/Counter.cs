@@ -8,7 +8,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private Tumbler _tumbler;
     [SerializeField] private TextMeshProUGUI _counterText;
     [SerializeField] private Animator _counterAnimator;
-    [SerializeField] private AnimationClip _tumblerAnimation;
+    [SerializeField] private AnimationClip _tumblerTurnAnimation;
 
     private WaitForSecondsRealtime _waitForSeconds;
     private int _coutn = 0;
@@ -44,7 +44,7 @@ public class Counter : MonoBehaviour
 
         while (_tumbler.IsOn)
         {
-            _counterAnimator.Play(_tumblerAnimation.name);
+            _counterAnimator.Play(_tumblerTurnAnimation.name);
             _coutn++;
 
             ShowTimer();
